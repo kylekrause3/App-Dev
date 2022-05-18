@@ -15,7 +15,7 @@ class _FitStopwatchState extends State<FitStopwatch> {
 
   int buttonsState = 0;
 
-  //this could use some improvement.
+  //this could use some improvement. this is to change the start/stop/reset/lap buttons so they look like the apple UI
   List<Widget> giveButtons() {
     switch(buttonsState){ // don't need break after each case b/c return statements
 
