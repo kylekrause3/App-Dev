@@ -148,7 +148,7 @@ class _FitStopwatchState extends State<FitStopwatch> {
                         displayTime,
                         style: const TextStyle(
                           fontSize: 60.0,
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.normal,
                         ),
                       );
                     }
@@ -224,6 +224,8 @@ class _FitStopwatchState extends State<FitStopwatch> {
                     },
                   )
                 ),
+
+
               ],
             )
         )
