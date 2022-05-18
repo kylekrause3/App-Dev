@@ -15,103 +15,6 @@ class _FitStopwatchState extends State<FitStopwatch> {
 
   int buttonsState = 0;
 
-  //this could use some improvement.
-  List<Widget> giveButtons() {
-    switch(buttonsState){ // don't need break after each case b/c return statements
-
-      case 0: { //********BEFORE START
-        return[
-          //start button
-          TextButton(
-            child: const Text('Start'), //TODO Start or reset
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
-
-            onPressed: (){
-              stopwatch.onExecute.add(StopWatchExecute.start);
-              setState(() {
-                buttonsState = 1;
-              });
-            },
-          ),
-        ];
-      }
-
-      case 1: { //********WHILE RUNNING
-        return[
-          //lap button
-          TextButton(
-            child: const Text('Lap'), //TODO Start or reset
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
-
-            onPressed: (){
-              stopwatch.onExecute.add(StopWatchExecute.lap);
-            },
-          ),
-          //stop button
-          TextButton(
-            child: const Text('Stop'), //TODO Start or reset
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
-
-            onPressed: (){
-              stopwatch.onExecute.add(StopWatchExecute.stop);
-              setState(() {
-                buttonsState = 2;
-              });
-            },
-          ),
-        ];
-      }
-
-      case 2: { //********STOPPED
-        return[
-          //reset button
-          TextButton(
-            child: const Text('Reset'), //TODO Start or reset
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
-
-            onPressed: (){
-              stopwatch.onExecute.add(StopWatchExecute.reset);
-              setState(() {
-                buttonsState = 0;
-              });
-            },
-          ),
-          //start button
-          TextButton(
-            child: const Text('Start'), //TODO Start or reset
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
-              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
-            ),
-
-            onPressed: (){
-              stopwatch.onExecute.add(StopWatchExecute.start);
-              setState(() {
-                buttonsState = 1;
-              });
-            },
-          ),
-        ];
-      }
-
-      default:{
-        return [];
-      }
-    }
-  }
-
   @override
   void dispose() {
     // TODO: implement dispose
@@ -119,7 +22,6 @@ class _FitStopwatchState extends State<FitStopwatch> {
     stopwatch.dispose();
     scrollController.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -215,7 +117,7 @@ class _FitStopwatchState extends State<FitStopwatch> {
                                   ),
                                 ),
                               ),
-                              Divider(height: 1,),
+                              const Divider(height: 1),
                             ],
                           );
                         },
@@ -230,5 +132,103 @@ class _FitStopwatchState extends State<FitStopwatch> {
             )
         )
     );
+  }
+
+
+  //this could use some improvement.
+  List<Widget> giveButtons() {
+    switch(buttonsState){ // don't need break after each case b/c return statements
+
+      case 0: { //********BEFORE START
+        return[
+          //start button
+          TextButton(
+            child: const Text('Start'), //TODO Start or reset
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+
+            onPressed: (){
+              stopwatch.onExecute.add(StopWatchExecute.start);
+              setState(() {
+                buttonsState = 1;
+              });
+            },
+          ),
+        ];
+      }
+
+      case 1: { //********WHILE RUNNING
+        return[
+          //lap button
+          TextButton(
+            child: const Text('Lap'), //TODO Start or reset
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.grey),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+
+            onPressed: (){
+              stopwatch.onExecute.add(StopWatchExecute.lap);
+            },
+          ),
+          //stop button
+          TextButton(
+            child: const Text('Stop'), //TODO Start or reset
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+
+            onPressed: (){
+              stopwatch.onExecute.add(StopWatchExecute.stop);
+              setState(() {
+                buttonsState = 2;
+              });
+            },
+          ),
+        ];
+      }
+
+      case 2: { //********STOPPED
+        return[
+          //reset button
+          TextButton(
+            child: const Text('Reset'), //TODO Start or reset
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+
+            onPressed: (){
+              stopwatch.onExecute.add(StopWatchExecute.reset);
+              setState(() {
+                buttonsState = 0;
+              });
+            },
+          ),
+          //start button
+          TextButton(
+            child: const Text('Start'), //TODO Start or reset
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.green),
+              foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+            ),
+
+            onPressed: (){
+              stopwatch.onExecute.add(StopWatchExecute.start);
+              setState(() {
+                buttonsState = 1;
+              });
+            },
+          ),
+        ];
+      }
+
+      default:{
+        return [];
+      }
+    }
   }
 }
