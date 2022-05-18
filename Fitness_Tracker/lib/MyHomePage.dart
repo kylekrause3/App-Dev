@@ -1,3 +1,4 @@
+//THIS IS THE DEFAULT CLASS FOR FLUTTER. USE FOR REFERENCE
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
